@@ -2,7 +2,6 @@ import { Request, Response } from "express";
 import logger from "../utils/logger";
 import { CreateRechargeInput, updateRechargeInput } from "../validations/rechargeValidation";
 import { RechargeService } from "../service/rechargeService";
-import fetch from "node-fetch";
 import axios from "axios";
 //import { ParsedQs } from "qs";
 
@@ -110,23 +109,6 @@ export class RechargeController {
             });
 
             return res.status(201).json(callbackUpdateRechargeRequest);
-            //res.status(201).json(entryRequest);
-                // const recharge = await this.RechargeService.findAndUpdateRecharge({
-                //     rechargeId}, updateObj, {new: true} 
-                // ).then(async updated => {
-                //     const rechargeTable = await this.RechargeService.findRecharge({rechargeId})
-                //     .then(async found => {
-                //         await fetch("http://localhost:4500/api/callback/" + entryId, {
-                //         method: "PUT",
-                //         headers: {"Content-Type": "application/json"},
-                //         body: JSON.stringify({ "status":1 })
-                //         })
-                //             return res.status(201).json(updated);
-                //     })
-                // })
-                
-                
-            
             
         } catch (e:any) {
             logger.error(e);
